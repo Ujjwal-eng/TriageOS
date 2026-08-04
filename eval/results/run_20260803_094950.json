@@ -1,0 +1,201 @@
+{
+  "total_tickets": 20,
+  "routing": {
+    "accuracy": 0.9,
+    "correct": 18,
+    "total": 20,
+    "confusion_matrix": {
+      "billing": {
+        "billing": 6,
+        "null": 1
+      },
+      "technical": {
+        "technical": 3
+      },
+      "account": {
+        "account": 6,
+        "billing": 1
+      },
+      "unknown": {
+        "unknown": 3
+      }
+    }
+  },
+  "escalation": {
+    "precision": 0.8888888888888888,
+    "recall": 0.8888888888888888,
+    "true_positives": 8,
+    "false_positives": 1,
+    "false_negatives": 1,
+    "true_negatives": 10
+  },
+  "resolution": {
+    "accuracy": 1.0,
+    "checked": 5,
+    "correct": 5,
+    "failures": []
+  },
+  "raw_results": [
+    {
+      "ticket_id": "t001",
+      "predicted_category": "billing",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": false,
+      "resolution": "I have looked up your most recent invoice and issued a refund of \u20b929.99 to your account, customer id cust_001, due to a duplicate charge.",
+      "error": null
+    },
+    {
+      "ticket_id": "t002",
+      "predicted_category": "billing",
+      "predicted_confidence": 0.8,
+      "predicted_should_escalate": true,
+      "resolution": null,
+      "error": null
+    },
+    {
+      "ticket_id": "t003",
+      "predicted_category": "technical",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": false,
+      "resolution": "It looks like the issue you're experiencing with the app crashing when uploading a photo might be related to the size of the photos you're trying to upload. The knowledge base suggests that uploading photos larger than 10MB can cause this problem on some devices. \n\nI've gone ahead and filed a debug ticket (dbg_15) to investigate this issue further, as it could be a bug that needs attention from our engineering team.\n\nIn the meantime, you might want to try resizing your photos to under 10MB before uploading them to see if that resolves the issue. If the problem persists, please let me know, and I'll be happy to provide further assistance or updates on the status of the debug ticket.",
+      "error": null
+    },
+    {
+      "ticket_id": "t004",
+      "predicted_category": "technical",
+      "predicted_confidence": 0.8,
+      "predicted_should_escalate": false,
+      "resolution": "Our service is currently operational. If you're still having trouble, please try clearing your browser cache or restarting your device. If issues persist, I can try to help you further.",
+      "error": null
+    },
+    {
+      "ticket_id": "t005",
+      "predicted_category": "account",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": true,
+      "resolution": "Your email address on file is priya@example.com.",
+      "error": null
+    },
+    {
+      "ticket_id": "t006",
+      "predicted_category": "account",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": false,
+      "resolution": "I've triggered a password reset for your account. You should receive an email with a reset link shortly. If you have any further issues, feel free to ask.",
+      "error": null
+    },
+    {
+      "ticket_id": "t007",
+      "predicted_category": "account",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": true,
+      "resolution": null,
+      "error": null
+    },
+    {
+      "ticket_id": "t008",
+      "predicted_category": "account",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": true,
+      "resolution": null,
+      "error": null
+    },
+    {
+      "ticket_id": "t009",
+      "predicted_category": "billing",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": false,
+      "resolution": "I've located your most recent invoice and checked the payment status. To update your email address, I'll need to access your account settings. Could you please provide me with your current email address and the new one you'd like to use? I'll guide you through the process.",
+      "error": null
+    },
+    {
+      "ticket_id": "t010",
+      "predicted_category": "unknown",
+      "predicted_confidence": 0.2,
+      "predicted_should_escalate": true,
+      "resolution": null,
+      "error": null
+    },
+    {
+      "ticket_id": "t011",
+      "predicted_category": "billing",
+      "predicted_confidence": 0.8,
+      "predicted_should_escalate": true,
+      "resolution": null,
+      "error": null
+    },
+    {
+      "ticket_id": "t012",
+      "predicted_category": "billing",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": false,
+      "resolution": "A refund of 29.99 has been issued to your account due to the duplicate charge. Please allow 3-5 business days for the refund to be processed. If you have any further questions or concerns, please don't hesitate to reach out.",
+      "error": null
+    },
+    {
+      "ticket_id": "t013",
+      "predicted_category": "billing",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": false,
+      "resolution": "A refund of \u20b930 has been issued to your account as per your request. The refund is due to an overcharge on your recent invoice.",
+      "error": null
+    },
+    {
+      "ticket_id": "t014",
+      "predicted_category": "unknown",
+      "predicted_confidence": 0.4,
+      "predicted_should_escalate": true,
+      "resolution": null,
+      "error": null
+    },
+    {
+      "ticket_id": "t015",
+      "predicted_category": "billing",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": false,
+      "resolution": "A refund of \u20b940 has been issued to your account due to an overcharge. Your payment status is paid.",
+      "error": null
+    },
+    {
+      "ticket_id": "t016",
+      "predicted_category": "account",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": false,
+      "resolution": "Your account name on file is Omar Haddad.",
+      "error": null
+    },
+    {
+      "ticket_id": "t017",
+      "predicted_category": "technical",
+      "predicted_confidence": 0.8,
+      "predicted_should_escalate": false,
+      "resolution": "I've filed a debug ticket for the issue you're experiencing with the app freezing on startup. In the meantime, try uninstalling and reinstalling the app to see if that resolves the issue. If the problem persists, our engineering team will investigate and follow up with a solution.",
+      "error": null
+    },
+    {
+      "ticket_id": "t018",
+      "predicted_category": null,
+      "predicted_confidence": null,
+      "predicted_should_escalate": null,
+      "resolution": null,
+      "error": "Error code: 400 - {'error': {'message': 'tool call validation failed: parameters for tool issue_refund did not match schema: errors: [`/amount`: expected number, but got string]', 'type': 'invalid_request_error', 'code': 'tool_use_failed', 'failed_generation': '<function=issue_refund>{\"customer_id\": \"cust_002\", \"amount\": \"199.0\", \"reason\": \"failed payment\"}</function>'}}"
+    },
+    {
+      "ticket_id": "t019",
+      "predicted_category": "unknown",
+      "predicted_confidence": 0.2,
+      "predicted_should_escalate": true,
+      "resolution": null,
+      "error": null
+    },
+    {
+      "ticket_id": "t020",
+      "predicted_category": "account",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": true,
+      "resolution": null,
+      "error": null
+    }
+  ],
+  "run_timestamp": "2026-08-03T09:49:50.621156+00:00"
+}

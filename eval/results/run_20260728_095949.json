@@ -1,0 +1,200 @@
+{
+  "total_tickets": 20,
+  "routing": {
+    "accuracy": 0.95,
+    "correct": 19,
+    "total": 20,
+    "confusion_matrix": {
+      "billing": {
+        "billing": 7
+      },
+      "technical": {
+        "technical": 3
+      },
+      "account": {
+        "account": 6,
+        "billing": 1
+      },
+      "unknown": {
+        "unknown": 3
+      }
+    }
+  },
+  "escalation": {
+    "precision": 1.0,
+    "recall": 0.8888888888888888,
+    "true_positives": 8,
+    "false_positives": 0,
+    "false_negatives": 1,
+    "true_negatives": 11
+  },
+  "resolution": {
+    "accuracy": 1.0,
+    "checked": 5,
+    "correct": 5,
+    "failures": []
+  },
+  "raw_results": [
+    {
+      "ticket_id": "t001",
+      "predicted_category": "billing",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": false,
+      "resolution": "I have looked up your most recent invoice and issued a refund of \u20b929.99 to your account, customer id cust_001, due to a duplicate charge.",
+      "error": null
+    },
+    {
+      "ticket_id": "t002",
+      "predicted_category": "billing",
+      "predicted_confidence": 0.8,
+      "predicted_should_escalate": true,
+      "resolution": null,
+      "error": null
+    },
+    {
+      "ticket_id": "t003",
+      "predicted_category": "technical",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": false,
+      "resolution": "It looks like the issue you're experiencing with the app crashing when uploading a photo is a known problem, especially with larger files. To resolve this, you can try compressing your photos before uploading them or uploading smaller files. If the issue persists, please provide more details about your device and the app version you're using, and I'll be happy to help further or file a debug ticket if necessary.",
+      "error": null
+    },
+    {
+      "ticket_id": "t004",
+      "predicted_category": "technical",
+      "predicted_confidence": 0.8,
+      "predicted_should_escalate": false,
+      "resolution": "Our service is currently operational. If you're still having trouble, please try clearing your cache and cookies, or try accessing the site from a different browser or device. If issues persist, feel free to ask and I'll be happy to help further.",
+      "error": null
+    },
+    {
+      "ticket_id": "t005",
+      "predicted_category": "account",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": false,
+      "resolution": "Your email address on file is priya@example.com.",
+      "error": null
+    },
+    {
+      "ticket_id": "t006",
+      "predicted_category": "account",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": false,
+      "resolution": "I've triggered a password reset for your account, cust_004. You should receive a reset link via email.",
+      "error": null
+    },
+    {
+      "ticket_id": "t007",
+      "predicted_category": "account",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": true,
+      "resolution": null,
+      "error": null
+    },
+    {
+      "ticket_id": "t008",
+      "predicted_category": "account",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": true,
+      "resolution": null,
+      "error": null
+    },
+    {
+      "ticket_id": "t009",
+      "predicted_category": "billing",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": false,
+      "resolution": "I've retrieved your most recent invoice. To update the email address linked to your billing invoices, I would need to access a different system. Unfortunately, I don't have the capability to update customer information. I recommend contacting our customer support team for assistance with updating your email address. They will be able to help you with the process.",
+      "error": null
+    },
+    {
+      "ticket_id": "t010",
+      "predicted_category": "unknown",
+      "predicted_confidence": 0.2,
+      "predicted_should_escalate": true,
+      "resolution": null,
+      "error": null
+    },
+    {
+      "ticket_id": "t011",
+      "predicted_category": "billing",
+      "predicted_confidence": 0.8,
+      "predicted_should_escalate": true,
+      "resolution": null,
+      "error": null
+    },
+    {
+      "ticket_id": "t012",
+      "predicted_category": "billing",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": false,
+      "resolution": "A refund of 29.99 has been issued to your account due to the duplicate charge. Please allow 3-5 business days for the refund to be processed. If you have any further questions or concerns, please don't hesitate to reach out.",
+      "error": null
+    },
+    {
+      "ticket_id": "t013",
+      "predicted_category": "billing",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": false,
+      "resolution": "A refund of \u20b930 has been issued to your account as per your request. The refund is due to an overcharge on your recent invoice. Please note that the original invoice amount was \u20b975, and the payment status was paid. If you have any further questions or concerns, please don't hesitate to reach out.",
+      "error": null
+    },
+    {
+      "ticket_id": "t014",
+      "predicted_category": "unknown",
+      "predicted_confidence": 0.4,
+      "predicted_should_escalate": true,
+      "resolution": null,
+      "error": null
+    },
+    {
+      "ticket_id": "t015",
+      "predicted_category": "billing",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": false,
+      "resolution": "I've looked up the most recent invoice for customer cust_010 and issued a refund of \u20b940 due to an overcharge. The refund has been successfully processed.",
+      "error": null
+    },
+    {
+      "ticket_id": "t016",
+      "predicted_category": "account",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": false,
+      "resolution": "Your account name on file is Omar Haddad.",
+      "error": null
+    },
+    {
+      "ticket_id": "t017",
+      "predicted_category": "technical",
+      "predicted_confidence": 0.8,
+      "predicted_should_escalate": false,
+      "resolution": "I've filed a debug ticket for the issue you're experiencing with the app freezing on startup. In the meantime, try restarting your device or checking for any available updates for the app. If the issue persists, our engineering team will investigate and provide a fix as soon as possible.",
+      "error": null
+    },
+    {
+      "ticket_id": "t018",
+      "predicted_category": "billing",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": false,
+      "resolution": "Your last payment failed. The amount due is 199.0. Would you like to try again or issue a refund?",
+      "error": null
+    },
+    {
+      "ticket_id": "t019",
+      "predicted_category": "unknown",
+      "predicted_confidence": 0.2,
+      "predicted_should_escalate": true,
+      "resolution": null,
+      "error": null
+    },
+    {
+      "ticket_id": "t020",
+      "predicted_category": "account",
+      "predicted_confidence": 0.9,
+      "predicted_should_escalate": true,
+      "resolution": null,
+      "error": null
+    }
+  ],
+  "run_timestamp": "2026-07-28T09:59:49.782539+00:00"
+}
