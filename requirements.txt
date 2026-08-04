@@ -1,0 +1,13 @@
+langgraph
+langchain
+langchain-groq
+groq
+langchain-mcp-adapters
+mcp
+fastapi
+uvicorn
+pydantic
+presidio-analyzer
+presidio-anonymizer
+langsmith
+pytest
