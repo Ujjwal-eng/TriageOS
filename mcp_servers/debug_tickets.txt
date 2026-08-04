@@ -1,0 +1,16 @@
+App crashes when uploading a photo, potential issue with large file handling.
+user reported weird issue with thing, no matching help articles found
+App crashes when uploading photos, especially larger files.
+user reported weird issue with thing, no matching help articles found, needs follow up
+App crashes when uploading photos, especially larger files.
+user reported weird issue with thing, no matching help articles found
+App crashes when uploading a photo, potential known issue with large file sizes over 10MB.
+user reported weird issue with thing, no matching articles found in knowledge base
+user reported weird issue with thing, no matching help articles found, needs follow up
+App crashes when uploading photos, especially larger files.
+App freezes every time it is opened on startup.
+App crashes when uploading photos, especially larger files.
+App crashes when uploading photos, especially larger files.
+App freezes on startup, no relevant help articles found.
+App crashes when uploading a photo, potential known issue with large file sizes over 10MB
+App freezes every time it is opened on startup.
