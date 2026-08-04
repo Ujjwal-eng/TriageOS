@@ -1,0 +1,20 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# API Keys
+.env
+
+# Additional files
+graph_diagram.png
+test_escalation.py
+test_full_graph.py
+test_specialists.py
+visualise_graph.py
