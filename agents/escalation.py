@@ -38,23 +38,93 @@ def build_apply_decision_node(all_tools_by_name: dict):
     """all_tools_by_name: every tool from every MCP server, keyed by name.
     Build this once at startup by merging tools_by_server["crm"],
     ["kb"], ["email"] together — see test_escalation.py for the pattern."""
- 
+
+    def _parse_tool_result(raw):
+        """Extract a plain dict from the raw tool.ainvoke() return value.
+        LangChain wraps MCP tool output in content-block lists like
+        [{'type':'text','text':'{...}','id':'...'}].  We unwrap that here
+        so the rest of the code always works with a simple dict/string."""
+        import json as _json
+
+        # Already a dict — nothing to do.
+        if isinstance(raw, dict):
+            return raw
+
+        # Content-block list — grab the first text block.
+        if isinstance(raw, list):
+            for block in raw:
+                if isinstance(block, dict) and block.get("type") == "text":
+                    try:
+                        return _json.loads(block["text"])
+                    except (ValueError, KeyError):
+                        return {"result": block.get("text", str(raw))}
+            return {"result": str(raw)}
+
+        # Plain string (maybe JSON).
+        if isinstance(raw, str):
+            try:
+                return _json.loads(raw)
+            except ValueError:
+                return {"result": raw}
+
+        return {"result": str(raw)}
+
+    def _friendly_message(tool_name: str, data: dict, edited: bool = False) -> str:
+        """Turn a tool name + parsed result dict into a clear, customer-facing
+        resolution message."""
+        prefix = "Approved (edited)" if edited else "Approved"
+
+        if tool_name == "issue_refund":
+            amount = data.get("refunded", data.get("amount", "unknown"))
+            cid = data.get("customer_id", "unknown")
+            reason = data.get("reason", "")
+            msg = f"{prefix}: Refund of ₹{amount:,.2f} issued to customer {cid}."
+            if reason:
+                msg += f" Reason: {reason}."
+            return msg
+
+        if tool_name == "delete_account":
+            cid = data.get("customer_id", "unknown")
+            deleted = data.get("deleted", False)
+            if deleted:
+                return f"{prefix}: Account {cid} has been permanently deleted."
+            return f"{prefix}: Account deletion requested for {cid}."
+
+        if tool_name == "update_email":
+            cid = data.get("customer_id", "unknown")
+            email = data.get("new_email", "unknown")
+            return f"{prefix}: Email for customer {cid} updated to {email}."
+
+        if tool_name == "reset_password":
+            cid = data.get("customer_id", "unknown")
+            return f"{prefix}: Password reset email sent to customer {cid}."
+
+        if tool_name == "send_email":
+            to = data.get("to", "unknown")
+            return f"{prefix}: Email sent to {to}."
+
+        # Fallback — show a clean summary of key-value pairs.
+        details = ", ".join(f"{k}: {v}" for k, v in data.items()
+                           if k not in ("id", "type"))
+        return f"{prefix}: {tool_name} completed. {details}" if details else f"{prefix}: {tool_name} completed successfully."
+
     async def apply_decision(state: dict) -> dict:
         decision = state.get("human_decision") or {}
         action = decision.get("action")
         proposed = state.get("proposed_action") or {}
- 
+
         if action == "approve":
             tool = all_tools_by_name.get(proposed.get("tool"))
             if tool is None:
                 return {"resolution": "Error: proposed tool not found.",
                         "requires_human": False}
             result = await tool.ainvoke(proposed.get("args", {}))
+            data = _parse_tool_result(result)
             return {
-                "resolution": f"Approved and completed: {proposed['tool']} -> {result}",
+                "resolution": _friendly_message(proposed["tool"], data, edited=False),
                 "requires_human": False,
             }
- 
+
         elif action == "edit":
             edited = decision.get("edited_action", proposed)
             tool = all_tools_by_name.get(edited.get("tool"))
@@ -62,8 +132,9 @@ def build_apply_decision_node(all_tools_by_name: dict):
                 return {"resolution": "Error: edited tool not found.",
                         "requires_human": False}
             result = await tool.ainvoke(edited.get("args", {}))
+            data = _parse_tool_result(result)
             return {
-                "resolution": f"Approved (edited) and completed: {edited['tool']} -> {result}",
+                "resolution": _friendly_message(edited["tool"], data, edited=True),
                 "requires_human": False,
             }
  
