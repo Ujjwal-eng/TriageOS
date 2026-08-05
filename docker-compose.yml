@@ -1,0 +1,21 @@
+# Just one service, since everything (API + MCP subprocesses) runs inside
+# the single container built by the Dockerfile. Compose is still
+# worth using here for clean env var and volume management, and it gives
+# us a one-command way to run this ("docker compose up").
+ 
+services:
+  triageos-api:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      # Keep the SQLite DB and logs on our actual machine, not locked
+      # inside the container — so they survive a container restart/rebuild.
+      - ./mcp_servers:/app/mcp_servers
+      - ./logs:/app/logs
+      - ./eval/results:/app/eval/results
+      - ./static:/app/static
+    restart: unless-stopped
+ 

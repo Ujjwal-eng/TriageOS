@@ -1,0 +1,11 @@
+.venv
+__pycache__
+*.pyc
+.git
+.gitignore
+.env
+logs/
+eval/results/
+mcp_servers/crm.db
+mcp_servers/email_log.txt
+mcp_servers/debug_tickets.txt
