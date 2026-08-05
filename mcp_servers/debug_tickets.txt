@@ -14,3 +14,7 @@ App crashes when uploading photos, especially larger files.
 App freezes on startup, no relevant help articles found.
 App crashes when uploading a photo, potential known issue with large file sizes over 10MB
 App freezes every time it is opened on startup.
+App crashes when uploading a photo, potential known issue with large file sizes over 10MB
+App crashes when uploading a photo, potential known issue with large file sizes over 10MB
+App crashes when uploading a photo, potential issue with handling large file sizes
+App freezes every time it is opened on startup.
