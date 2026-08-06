@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TriageOS — Multi-Agent Support Desk</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/style-light.css" />
+  <!-- login.js is loaded FIRST so window.initGoogleSignIn already exists
+       by the time Google's script below finishes and calls it via onload
+       — this removes the race condition entirely, regardless of which
+       script happens to finish downloading first. -->
+  <script src="/login.js"></script>
+  <script src="https://accounts.google.com/gsi/client" async defer onload="initGoogleSignIn()"></script>
+</head>
+<body>
+
+  <nav class="nav">
+    <span class="brand">TriageOS <span>/ multi-agent support desk</span></span>
+  </nav>
+
+  <div class="login-shell">
+    <div class="pitch">
+      <h1>Support tickets, <em>triaged and resolved</em><br />by a real agent team.</h1>
+      <p>
+        A live multi-agent system that classifies, resolves, and escalates
+        customer tickets — with guardrails, human-in-the-loop approval for
+        risky actions, and a measured eval harness behind it.
+      </p>
+      <div class="pitch-tags">
+        <span class="tag">LangGraph</span>
+        <span class="tag">MCP tool use</span>
+        <span class="tag">Human-in-the-loop</span>
+        <span class="tag">PII &amp; injection guardrails</span>
+      </div>
+    </div>
+
+    <div class="login-card">
+      <h2>Sign in to the console</h2>
+      <p class="sub">View live tickets, submit new ones, and act as reviewer.</p>
+
+      <!-- Google renders its real button inside this div once GOOGLE_CLIENT_ID
+           (in login.js) is filled in with your own credential. -->
+      <div id="google-signin-button"></div>
+
+      <div class="divider">or</div>
+
+      <a href="/console.html" class="guest-link">Continue without signing in </a>
+
+      <!--<p class="login-note">
+        This demo login personalizes your greeting using your Google
+        profile — it does not create a secured backend session. The
+        console itself is not access-restricted in this project (see
+        Overview → Limitations).
+      </p>-->
+    </div>
+  </div>
+
+</body>
+</html>
