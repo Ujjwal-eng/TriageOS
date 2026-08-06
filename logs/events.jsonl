@@ -438,3 +438,15 @@
 {"timestamp": "2026-08-05T15:27:02.445316+00:00", "ticket_id": "t020", "node": "triage", "latency_ms": 3468.6, "tokens": null, "extra": {}}
 {"timestamp": "2026-08-05T15:27:04.954305+00:00", "ticket_id": "t020", "node": "account", "latency_ms": 2512.7, "tokens": null, "extra": {}}
 {"timestamp": "2026-08-05T15:27:04.972455+00:00", "ticket_id": "t020", "node": "risk_check", "latency_ms": 0.0, "tokens": null, "extra": {}}
+{"timestamp": "2026-08-06T10:07:14.564992+00:00", "ticket_id": "5868cd92-9163-4833-8ea3-935700ed7b30", "node": "ingest", "latency_ms": 5253.8, "tokens": null, "extra": {}}
+{"timestamp": "2026-08-06T10:07:16.938325+00:00", "ticket_id": "5868cd92-9163-4833-8ea3-935700ed7b30", "node": "triage", "latency_ms": 2366.4, "tokens": null, "extra": {}}
+{"timestamp": "2026-08-06T10:07:22.952313+00:00", "ticket_id": "5868cd92-9163-4833-8ea3-935700ed7b30", "node": "billing", "latency_ms": 6001.3, "tokens": null, "extra": {}}
+{"timestamp": "2026-08-06T10:07:22.960655+00:00", "ticket_id": "5868cd92-9163-4833-8ea3-935700ed7b30", "node": "risk_check", "latency_ms": 0.0, "tokens": null, "extra": {}}
+{"timestamp": "2026-08-06T10:07:22.976482+00:00", "ticket_id": "5868cd92-9163-4833-8ea3-935700ed7b30", "node": "output_validate", "latency_ms": 0.1, "tokens": null, "extra": {}}
+{"timestamp": "2026-08-06T10:07:37.467855+00:00", "ticket_id": "2e31a27f-e403-4473-8da2-8cf61ab766ab", "node": "ingest", "latency_ms": 2389.4, "tokens": null, "extra": {}}
+{"timestamp": "2026-08-06T10:07:39.868806+00:00", "ticket_id": "2e31a27f-e403-4473-8da2-8cf61ab766ab", "node": "triage", "latency_ms": 2388.5, "tokens": null, "extra": {}}
+{"timestamp": "2026-08-06T10:07:42.000551+00:00", "ticket_id": "2e31a27f-e403-4473-8da2-8cf61ab766ab", "node": "billing", "latency_ms": 2120.9, "tokens": null, "extra": {}}
+{"timestamp": "2026-08-06T10:07:42.003583+00:00", "ticket_id": "2e31a27f-e403-4473-8da2-8cf61ab766ab", "node": "risk_check", "latency_ms": 0.0, "tokens": null, "extra": {}}
+{"timestamp": "2026-08-06T10:09:20.923405+00:00", "ticket_id": "2e31a27f-e403-4473-8da2-8cf61ab766ab", "node": "human_review", "latency_ms": 0.1, "tokens": null, "extra": {}}
+{"timestamp": "2026-08-06T10:09:22.511570+00:00", "ticket_id": "2e31a27f-e403-4473-8da2-8cf61ab766ab", "node": "apply_decision", "latency_ms": 1583.3, "tokens": null, "extra": {}}
+{"timestamp": "2026-08-06T10:09:22.515591+00:00", "ticket_id": "2e31a27f-e403-4473-8da2-8cf61ab766ab", "node": "output_validate", "latency_ms": 0.2, "tokens": null, "extra": {}}
