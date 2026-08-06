@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TriageOS — Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/style-light.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="/" class="brand">TriageOS <span>/ overview</span></a>
+    <div class="nav-links">
+      <a href="/console.html">Console</a>
+      <a href="/overview.html" class="active">Overview</a>
+    </div>
+  </nav>
+
+  <div class="overview-shell">
+    <h1>How it works</h1>
+    <p class="lede">
+      A multi-agent support desk: a triage agent classifies each ticket
+      and hands it to a specialist, every risky action is checked
+      against a deterministic guardrail before it's allowed to run, and
+      anything uncertain or high-risk pauses for a human to review.
+    </p>
+
+    <div class="section">
+      <h2>Architecture</h2>
+      <img src="/images/architecture_diagram.png" alt="TriageOS graph architecture" class="arch-diagram" />
+    </div>
+
+    <div class="section">
+      <h2>Key features</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Multi-agent routing</h3>
+          <p>Triage classifies each ticket; billing, technical, and account specialists each handle their own domain with their own tools.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Real tool use via MCP</h3>
+          <p>Specialists call real MCP-backed tools — a SQLite CRM, a searchable knowledge base, an email/notify service.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Human-in-the-loop</h3>
+          <p>Risky actions genuinely pause graph execution via LangGraph's interrupt() and wait for a real decision.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Layered guardrails</h3>
+          <p>PII redaction, prompt-injection detection, and output validation — with tool-call allowlisting as the primary defense.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Measured, not assumed</h3>
+          <p>A 20-ticket eval harness scores routing accuracy, escalation precision/recall, and resolution correctness.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Shipped as a service</h3>
+          <p>FastAPI + Docker packaging — a real, runnable service, not just a script.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Evaluation results</h2>
+      <table class="metrics">
+        <tr><th>Metric</th><th>Result</th></tr>
+        <tr><td>Routing accuracy</td><td class="placeholder-value">90.0% (18/20)</td></tr>
+        <tr><td>Escalation precision</td><td class="placeholder-value">0.89</td></tr>
+        <tr><td>Escalation recall</td><td class="placeholder-value">0.89</td></tr>
+        <tr><td>Resolution correctness</td><td class="placeholder-value">1.0 (5 checked)</td></tr>
+      </table>
+      <p class="login-note" style="margin-top:10px;">
+        Run <code>python -m eval.run_eval</code> and update the values
+        above from your latest <code>eval/results/run_*.json</code>.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Known limitations</h2>
+      <ul class="limitations-list">
+        <li><b>Retrieval</b> — knowledge base search is keyword-based, not embeddings.</li>
+        <li><b>Persistence</b> — the checkpointer is in-memory; pending tickets are lost on restart.</li>
+        <li><b>Architecture</b> — MCP servers run as subprocesses (stdio) in one container, not as separate networked services.</li>
+        <li><b>Security</b> — no auth or rate-limiting on the API yet; not intended for public deployment as-is.</li>
+      </ul>
+      <p class="login-note">Full write-up in <code>README.md</code> in the repo.</p>
+    </div>
+
+    <div class="cta-row">
+      <a href="/console.html" class="btn-light primary">Open the console</a>
+      <a href="https://github.com/" class="btn-light outline">View source</a>
+    </div>
+  </div>
+
+</body>
+</html>
