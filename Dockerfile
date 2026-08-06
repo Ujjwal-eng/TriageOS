@@ -18,6 +18,12 @@ RUN uv sync --frozen --no-dev
  
 # Now copy everything else.
 COPY . .
+
+# Seed the mock CRM database inside the container. The .dockerignore
+# (correctly) excludes the local crm.db, so we generate a fresh one here.
+# On Render's free tier there's no persistent disk — this gets re-seeded
+# on every deploy, which is fine for a demo project.
+RUN python mcp_servers/db_setup.py
  
 ENV PATH="/app/.venv/bin:$PATH"
  
