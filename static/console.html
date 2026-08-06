@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TriageOS — Live Console</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/style-console.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div style="display:flex; align-items:center; gap:22px;">
+      <h1>TriageOS <span>/ live console</span></h1>
+      <a href="/overview.html" class="header-nav-link">Overview</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:16px;">
+      <span id="user-greeting"></span>
+      <div class="status-pill"><span class="dot dot-resolved"></span>api connected</div>
+    </div>
+  </header>
+
+  <main class="layout">
+
+    <!-- LEFT COLUMN: submit + history -->
+    <section class="col">
+      <div class="panel">
+        <h2>SUBMIT TICKET</h2>
+        <textarea id="ticket-input" rows="4" placeholder="Describe the customer's issue…"></textarea>
+        <button id="submit-btn" class="btn btn-primary">Submit ticket </button>
+
+        <div class="examples">
+          <p class="label">Try an example</p>
+          <div id="example-buttons"></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>RECENT TICKETS</h2>
+        <div id="ticket-history">
+          <p class="muted small">Nothing yet — submit a ticket to see it appear here.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MIDDLE COLUMN: pipeline trace -->
+    <section class="col">
+      <div class="panel">
+        <div class="panel-header-row">
+          <h2>PIPELINE TRACE</h2>
+          <span id="trace-ticket-id" class="mono small muted"></span>
+        </div>
+        <svg id="pipeline-svg" viewBox="0 0 480 680" role="img" aria-label="Ticket pipeline trace"></svg>
+        <div class="legend">
+          <span><i style="background:#8b7ff6"></i>in progress</span>
+          <span><i style="background:#f0a868"></i>awaiting human</span>
+          <span><i style="background:#4ade9e"></i>done</span>
+          <span><i style="background:#1a1d26"></i>not on this path</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT COLUMN: ticket detail + review -->
+    <section class="col">
+      <div id="detail-panel" class="panel">
+        <p class="muted small center">Submit a ticket, or select one from the list, to see its detail here.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Purely cosmetic — shows a greeting if the user signed in on the
+    // login page. See login.js for why this isn't real authentication.
+    (function () {
+      const raw = sessionStorage.getItem('triageos_user');
+      const el = document.getElementById('user-greeting');
+      if (raw) {
+        const user = JSON.parse(raw);
+        el.innerHTML = `<span class="mono small muted">${user.name} · ${user.email} · <a href="#" id="sign-out-link" style="color:inherit;">sign out</a></span>`;
+        document.getElementById('sign-out-link').addEventListener('click', (e) => {
+          e.preventDefault();
+          sessionStorage.removeItem('triageos_user');
+          window.location.href = '/';
+        });
+      }
+    })();
+  </script>
+  <script src="/app.js"></script>
+</body>
+</html>
