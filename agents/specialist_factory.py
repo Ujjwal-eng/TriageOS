@@ -37,7 +37,7 @@ def make_specialist(name: str, tools: list, system_prompt: str,
                      risk_rules: dict, max_iterations: int = 4):
     """Returns a graph-node function for this specialist."""
  
-    llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0)
+    llm = ChatGroq(model="openai/gpt-oss-20b", temperature=0)
     llm_with_tools = llm.bind_tools(tools)
     tools_by_name = {t.name: t for t in tools}
  
