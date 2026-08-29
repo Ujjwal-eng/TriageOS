@@ -53,7 +53,7 @@ Classify only."""
  
  
 async def check_for_injection(text: str) -> InjectionCheckResult:
-    llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0)
+    llm = ChatGroq(model="openai/gpt-oss-20b", temperature=0)
     structured_llm = llm.with_structured_output(InjectionCheckResult)
     return await structured_llm.ainvoke([
         ("system", INJECTION_CLASSIFIER_PROMPT),
